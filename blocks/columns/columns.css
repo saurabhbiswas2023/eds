@@ -1,3 +1,10 @@
+.columns {
+  max-width: 80%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -19,6 +26,49 @@
   display: block;
 }
 
+/* WKND Button Styling */
+.columns a,
+.columns .button {
+  display: inline-block !important;
+  background: #ffea00 !important;
+  color: #000 !important;
+  padding: 12px 24px !important;
+  text-decoration: none !important;
+  font-weight: 700 !important;
+  font-size: 0.9rem !important;
+  text-transform: uppercase !important;
+  border-radius: 0 !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+  letter-spacing: 0.5px !important;
+  margin-top: 16px !important;
+}
+
+.columns a:hover,
+.columns .button:hover {
+  background: #000 !important;
+  color: #ffea00 !important;
+}
+
+/* Content Styling */
+.columns h1,
+.columns h2,
+.columns h3 {
+  margin: 0 0 16px 0;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #333;
+}
+
+.columns p {
+  margin: 0 0 20px 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #666;
+}
+
 @media (width >= 900px) {
   .columns > div {
     align-items: center;
@@ -29,5 +79,13 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+/* Desktop responsive - larger content area */
+@media (min-width: 1024px) {
+  .columns {
+    max-width: 80%;
+    padding: 0 30px;
   }
 }

@@ -15,9 +15,10 @@ header nav {
   align-items: center;
   gap: 0 24px;
   margin: auto;
-  max-width: 1248px;
+  max-width: 80%;
+  width: 100%;
   height: var(--nav-height);
-  padding: 0 24px;
+  padding: 0 20px;
   font-family: var(--body-font-family);
 }
 
@@ -34,9 +35,12 @@ header nav[aria-expanded='true'] {
   header nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 0 32px;
-    max-width: 1264px;
-    padding: 0 32px;
+    max-width: 80%;
+    width: 100%;
+    padding: 0 20px;
+    height: 115px;
   }
 
   header nav[aria-expanded='true'] {
@@ -139,9 +143,12 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 header .nav-brand {
   grid-area: brand;
   flex-basis: 128px;
-  font-size: var(--heading-font-size-s);
-  font-weight: 700;
+  font-size: 72px;
+  font-weight: 800;
+  font-family: roboto, sans-serif;
   line-height: 1;
+  display: flex;
+  align-items: center;
 }
 
 header nav .nav-brand img {
@@ -166,6 +173,7 @@ header nav[aria-expanded='true'] .nav-sections {
 header nav .nav-sections ul {
   list-style: none;
   padding-left: 0;
+  margin: 0;
   font-size: var(--body-font-size-s);
 }
 
@@ -183,13 +191,28 @@ header nav .nav-sections ul > li > ul > li {
 
 @media (width >= 900px) {
   header nav .nav-sections {
-    display: block;
-    visibility: visible;
+    display: flex !important;
+    visibility: visible !important;
     white-space: nowrap;
+    align-items: center;
+    height: 100%;
+    flex: 1 1 auto;
+    justify-content: right;
+    position: relative;
   }
 
   header nav[aria-expanded='true'] .nav-sections {
     align-self: unset;
+  }
+
+  header nav .nav-sections .default-content-wrapper {
+    font-size: larger;
+    width:30%;
+    float:right;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    position: relative;
   }
 
   header nav .nav-sections .nav-drop {
@@ -218,15 +241,99 @@ header nav .nav-sections ul > li > ul > li {
     transform: rotate(315deg);
   }
 
-  header nav .nav-sections ul {
-    display: flex;
-    gap: 24px;
-    margin: 0;
+  /* Force navigation items to be positioned absolutely for spacing control */
+  header nav .nav-sections ul,
+  header nav .nav-sections .default-content-wrapper > ul,
+  header .nav-sections ul,
+  header .nav-sections .default-content-wrapper > ul {
+    display: block !important;
+    position: relative !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    text-align: center !important;
+    width: 100% !important;
+    height: 100% !important;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li {
-    flex: 0 1 auto;
-    position: relative;
+  /* Position navigation items very close together like expected output */
+  header nav .nav-sections .default-content-wrapper > ul > li:nth-child(1),
+  header nav .nav-sections ul > li:nth-child(1) {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-150px, -50%) !important;
+    white-space: nowrap !important;
+    padding: 0 !important;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li:nth-child(2),
+  header nav .nav-sections ul > li:nth-child(2) {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50px, -50%) !important;
+    white-space: nowrap !important;
+    padding: 0 !important;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li:nth-child(3),
+  header nav .nav-sections ul > li:nth-child(3) {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(50px, -50%) !important;
+    white-space: nowrap !important;
+    padding: 0 !important;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li:nth-child(4),
+  header nav .nav-sections ul > li:nth-child(4) {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(120px, -50%) !important;
+    white-space: nowrap !important;
+    padding: 0 !important;
+  }
+
+  /* Style the links */
+  header nav .nav-sections .default-content-wrapper > ul > li > a,
+  header nav .nav-sections ul > li > a,
+  header nav .nav-sections .default-content-wrapper > ul > li > *,
+  header nav .nav-sections ul > li > * {
+    text-decoration: none !important;
+    color: black !important;
+    font-weight: 400 !important;
+    font-family: roboto, sans-serif !important;
+    padding: 8px 12px !important;
+    margin: 0 !important;
+    display: block !important;
+    line-height: 1.2 !important;
+    transition: background-color 0.3s ease !important;
+    border-radius: 4px !important;
+  }
+
+  /* Yellow background on hover */
+  header nav .nav-sections .default-content-wrapper > ul > li:hover > a,
+  header nav .nav-sections ul > li:hover > a,
+  header nav .nav-sections .default-content-wrapper > ul > li:hover > *,
+  header nav .nav-sections ul > li:hover > *,
+  header nav .nav-sections .default-content-wrapper > ul > li > a:hover,
+  header nav .nav-sections ul > li > a:hover,
+  header nav .nav-sections .default-content-wrapper > ul > li > *:hover,
+  header nav .nav-sections ul > li > *:hover {
+    background-color: #ffea00 !important;
+    color: black !important;
+  }
+
+  /* Override any EDS default styles */
+  header nav .nav-sections .default-content-wrapper > ul > li p,
+  header nav .nav-sections ul > li p {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    color: black !important;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
@@ -265,4 +372,109 @@ header nav .nav-sections ul > li > ul > li {
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: 100%;
+}
+
+/* Search Styles - Compact with Icon on Left */
+.search-container {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  background: white !important;
+  border: 1px solid #ddd !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  height: 40px !important;
+  margin: 0 !important;
+}
+
+.search-container button {
+  background: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  padding: 8px 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: opacity 0.3s ease !important;
+  height: 100% !important;
+  border-right: 1px solid #ddd !important;
+}
+
+.search-container button:hover {
+  opacity: 0.7 !important;
+}
+
+.search-container button svg {
+  width: 16px !important;
+  height: 16px !important;
+  fill: #666 !important;
+}
+
+.search-container input {
+  border: none !important;
+  outline: none !important;
+  padding: 0 12px !important;
+  font-size: 14px !important;
+  background: transparent !important;
+  width: 180px !important;
+  min-width: 180px !important;
+  height: 100% !important;
+  border-radius: 0 !important;
+}
+
+.search-container input::placeholder {
+  color: #999 !important;
+}
+
+/* Mobile Search Styles */
+@media (max-width: 900px) {
+  .search-container {
+    height: 32px !important;
+  }
+  
+  .search-container input {
+    width: 140px !important;
+    min-width: 140px !important;
+    padding: 0 10px !important;
+    font-size: 13px !important;
+  }
+  
+  .search-container button {
+    padding: 6px 8px !important;
+  }
+  
+  .search-container button svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .search-container {
+    height: 30px !important;
+  }
+  
+  .search-container input {
+    width: 120px !important;
+    min-width: 120px !important;
+    padding: 0 8px !important;
+    font-size: 12px !important;
+  }
+  
+  .search-container button {
+    padding: 5px 6px !important;
+  }
+  
+  .search-container button svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
 }

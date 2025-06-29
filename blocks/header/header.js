@@ -9,6 +9,7 @@ function closeOnEscape(e) {
     const nav = document.getElementById('nav');
     const navSections = nav.querySelector('.nav-sections');
     const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
+    
     if (navSectionExpanded && isDesktop.matches) {
       // eslint-disable-next-line no-use-before-define
       toggleAllNavSections(navSections);
@@ -49,6 +50,17 @@ function openOnKeydown(e) {
 
 function focusNavSection() {
   document.activeElement.addEventListener('keydown', openOnKeydown);
+}
+
+/**
+ * Handles search functionality
+ * @param {string} query The search query
+ */
+function handleSearch(query) {
+  if (query.trim()) {
+    // Redirect to Google search with the query
+    window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query.trim())}`;
+  }
 }
 
 /**
@@ -145,6 +157,54 @@ export default async function decorate(block) {
       });
     });
   }
+
+  // Add permanently visible search to nav-tools
+  let navTools = nav.querySelector('.nav-tools');
+  
+  // If nav-tools doesn't exist, create it
+  if (!navTools) {
+    console.log('Creating nav-tools section');
+    navTools = document.createElement('div');
+    navTools.className = 'nav-tools';
+    nav.appendChild(navTools);
+  }
+  
+  console.log('Adding search to nav-tools:', navTools);
+  
+  // Create simple search form - always visible with icon on left
+  const searchContainer = document.createElement('div');
+  searchContainer.className = 'search-container';
+  searchContainer.innerHTML = `
+    <button type="button" aria-label="Submit search">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+        <path d="M16.9,15.5c2.4-3.2,2.2-7.7-0.7-10.6c-3.1-3.1-8.1-3.1-11.3,0c-3.1,3.2-3.1,8.3,0,11.4
+          c2.9,2.9,7.5,3.1,10.6,0.6c0,0.1,0,0.1,0,0.1l4.2,4.2c0.5,0.4,1.1,0.4,1.5,0c0.4-0.4,0.4-1,0-1.4L16.9,15.5
+          C16.9,15.5,16.9,15.5,16.9,15.5L16.9,15.5z M14.8,6.3c2.3,2.3,2.3,6.1,0,8.5c-2.3,2.3-6.1,2.3-8.5,0C4,12.5,4,8.7,6.3,6.3
+          C8.7,4,12.5,4,14.8,6.3z"/>
+      </svg>
+    </button>
+    <input type="text" placeholder="Search..." aria-label="Search">
+  `;
+  
+  // Replace nav-tools content with search
+  navTools.innerHTML = '';
+  navTools.appendChild(searchContainer);
+  
+  console.log('Search container added successfully');
+  
+  // Add event listeners
+  const searchInput = searchContainer.querySelector('input');
+  const searchButton = searchContainer.querySelector('button');
+  
+  searchButton.addEventListener('click', () => {
+    handleSearch(searchInput.value);
+  });
+  
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      handleSearch(searchInput.value);
+    }
+  });
 
   // hamburger for mobile
   const hamburger = document.createElement('div');

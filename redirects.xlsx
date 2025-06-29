@@ -1,0 +1,6 @@
+source,destination
+/search,https://www.google.com
+/old-page,/new-page
+/blog,/magazine
+/contact,/about
+/shop,https://shop.wknd.com 
