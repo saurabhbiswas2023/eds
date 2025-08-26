@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420">
+<rect x="0" y="0" width="100%" height="100%" fill="#ffffff"/>
+<text x="450.0" y="30.0" text-anchor="middle" font-size="18" font-family="sans-serif" fill="#111827">Phase 2 · Sprint 1</text>
+<line x1="80" y1="340.00" x2="870" y2="340.00" stroke="#e5e7eb" stroke-width="1"/>
+<text x="70" y="344.00" text-anchor="end" font-size="12" font-family="sans-serif" fill="#374151">0%</text>
+<line x1="80" y1="284.00" x2="870" y2="284.00" stroke="#e5e7eb" stroke-width="1"/>
+<text x="70" y="288.00" text-anchor="end" font-size="12" font-family="sans-serif" fill="#374151">2%</text>
+<line x1="80" y1="228.00" x2="870" y2="228.00" stroke="#e5e7eb" stroke-width="1"/>
+<text x="70" y="232.00" text-anchor="end" font-size="12" font-family="sans-serif" fill="#374151">4%</text>
+<line x1="80" y1="172.00" x2="870" y2="172.00" stroke="#e5e7eb" stroke-width="1"/>
+<text x="70" y="176.00" text-anchor="end" font-size="12" font-family="sans-serif" fill="#374151">6%</text>
+<line x1="80" y1="116.00" x2="870" y2="116.00" stroke="#e5e7eb" stroke-width="1"/>
+<text x="70" y="120.00" text-anchor="end" font-size="12" font-family="sans-serif" fill="#374151">8%</text>
+<line x1="80" y1="60.00" x2="870" y2="60.00" stroke="#e5e7eb" stroke-width="1"/>
+<text x="70" y="64.00" text-anchor="end" font-size="12" font-family="sans-serif" fill="#374151">10%</text>
+<line x1="80" y1="60" x2="80" y2="340" stroke="#9ca3af" stroke-width="1.5"/>
+<line x1="80" y1="340" x2="870" y2="340" stroke="#9ca3af" stroke-width="1.5"/>
+<path d="M 80.00 307.24 L 475.00 228.00 L 870.00 60.00" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+<circle cx="80.00" cy="307.24" r="4" fill="#2563eb"/>
+<text x="80.00" y="297.24" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#111827">1.17%</text>
+<circle cx="475.00" cy="228.00" r="4" fill="#2563eb"/>
+<text x="475.00" y="218.00" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#111827">4.00%</text>
+<circle cx="870.00" cy="60.00" r="4" fill="#2563eb"/>
+<text x="870.00" y="50.00" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#111827">10.00%</text>
+<text x="80.00" y="362" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#374151">Defect Density (FE)</text>
+<text x="475.00" y="362" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#374151">Japan Region (Stretch Target)</text>
+<text x="870.00" y="362" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#374151">UI competency Target (General)</text>
+</svg>
